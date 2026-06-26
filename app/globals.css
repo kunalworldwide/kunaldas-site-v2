@@ -4,40 +4,56 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* -------------------------------------------------------------------------- */
+/*  Design tokens — Kunal Das Portfolio v2 (Editorial Light)                  */
+/*  Tokens defined here map to Tailwind v4 utilities via @theme inline.        */
+/* -------------------------------------------------------------------------- */
+
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
+    /* Typography */
+    --font-heading: var(--font-playfair), serif;
+    --font-body: var(--font-source-serif), serif;
+    --font-mono: var(--font-jetbrains), monospace;
+    --font-sans: var(--font-body), serif;
+
+    /* Layout */
+    --max-width-content: 1100px;
+
+    /* Editorial Light palette — bound to shadcn semantic tokens so the
+       existing component utilities (bg-background, text-foreground, etc.)
+       resolve to the design spec colors automatically. */
     --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
@@ -47,39 +63,59 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* -------------------------------------------------------------------------- */
+/*  CSS variables — single source of truth for the design system.             */
+/*  Values are the canonical hex colors from the design spec.                 */
+/* -------------------------------------------------------------------------- */
+
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    /* Page surfaces */
+    --background: #FDFCF8;
+    --foreground: #1A1A1A;
+    --card: #FFFFFF;
+    --card-foreground: #1A1A1A;
+    --popover: #FFFFFF;
+    --popover-foreground: #1A1A1A;
+
+    /* Brand */
+    --primary: #1A1A1A;
+    --primary-foreground: #FDFCF8;
+    --accent: #2563EB;
+    --accent-foreground: #FFFFFF;
+    --accent-warm: #D97706;
+
+    /* Neutral structure */
+    --secondary: #F5F5F4;
+    --secondary-foreground: #1A1A1A;
+    --muted: #F5F5F4;
+    --muted-foreground: #52525B;
+
+    /* Borders + inputs */
+    --border: #E7E5E4;
+    --input: #E7E5E4;
+    --ring: #2563EB;
+
+    /* Status */
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
+
+    /* Charts (defaults — pages may override) */
+    --chart-1: #2563EB;
+    --chart-2: #D97706;
+    --chart-3: #52525B;
+    --chart-4: #1A1A1A;
+    --chart-5: #E7E5E4;
+
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+
+    /* Sidebar tokens (kept for shadcn sidebar components) */
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #1A1A1A;
+    --sidebar-primary: #1A1A1A;
+    --sidebar-primary-foreground: #FDFCF8;
+    --sidebar-accent: #F5F5F4;
+    --sidebar-accent-foreground: #1A1A1A;
+    --sidebar-border: #E7E5E4;
+    --sidebar-ring: #2563EB;
 }
 
 .dark {
@@ -117,13 +153,171 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
+        font-family: var(--font-body), serif;
     }
-  html {
-    @apply font-sans;
+    html {
+        scroll-behavior: smooth;
     }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading), serif;
+    }
+    a {
+        color: var(--accent);
+        transition: color 200ms;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Editorial typography for rendered markdown (talks/posts/projects detail). */
+/*  Hand-rolled so we do not pull in @tailwindcss/typography.                 */
+/* -------------------------------------------------------------------------- */
+
+.prose-content {
+    color: var(--foreground);
+    font-family: var(--font-body), serif;
+    line-height: 1.75;
+}
+
+.prose-content > * + * {
+    margin-top: 1.25em;
+}
+
+.prose-content h1,
+.prose-content h2,
+.prose-content h3,
+.prose-content h4 {
+    font-family: var(--font-heading), serif;
+    font-weight: 700;
+    color: var(--foreground);
+    line-height: 1.25;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+.prose-content h1 { font-size: 2rem; }
+.prose-content h2 { font-size: 1.5rem; }
+.prose-content h3 { font-size: 1.25rem; }
+.prose-content h4 { font-size: 1.125rem; }
+
+.prose-content p {
+    margin: 0;
+}
+
+.prose-content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+.prose-content a:hover {
+    color: var(--accent);
+    text-decoration-thickness: 2px;
+}
+
+.prose-content strong {
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.prose-content em {
+    font-style: italic;
+}
+
+.prose-content ul,
+.prose-content ol {
+    padding-left: 1.5em;
+    margin: 0;
+}
+
+.prose-content ul { list-style: disc; }
+.prose-content ol { list-style: decimal; }
+
+.prose-content li {
+    margin: 0.4em 0;
+}
+
+.prose-content li > ul,
+.prose-content li > ol {
+    margin-top: 0.4em;
+}
+
+.prose-content blockquote {
+    border-left: 3px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted-foreground);
+    font-style: italic;
+}
+
+.prose-content code {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.9em;
+    background: var(--secondary);
+    padding: 0.15em 0.35em;
+    border-radius: 0.25rem;
+}
+
+.prose-content pre {
+    font-family: var(--font-mono), monospace;
+    background: var(--secondary);
+    color: var(--foreground);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.prose-content pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+}
+
+.prose-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5em 0;
+}
+
+.prose-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+.prose-content th,
+.prose-content td {
+    text-align: left;
+    padding: 0.5em 0.75em;
+    border-bottom: 1px solid var(--border);
+}
+
+.prose-content th {
+    font-family: var(--font-heading), serif;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.prose-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
 }

@@ -1,15 +1,33 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata } from "next"
+import { Playfair_Display, Source_Serif_4, JetBrains_Mono } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-mono",
+  display: "swap",
+  variable: "--font-playfair",
 })
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-serif",
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
+})
+
+export const metadata: Metadata = {
+  title: "Kunal Das — Developer Advocate & Cloud Native Consultant",
+  description:
+    "Kunal Das is a Developer Advocate APAC at CAST AI, specializing in Kubernetes cost optimization, FinOps, and CNCF community leadership.",
+}
 
 export default function RootLayout({
   children,
@@ -19,11 +37,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={`${playfair.variable} ${sourceSerif.variable} ${jetbrains.variable} antialiased`}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="font-body bg-background text-foreground antialiased">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )

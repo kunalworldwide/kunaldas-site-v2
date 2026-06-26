@@ -17,10 +17,14 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
 *.pem
+
+# custom domain (managed by user site repo)
+/public/CNAME
 
 # debug
 npm-debug.log*
