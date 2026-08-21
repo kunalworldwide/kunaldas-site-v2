@@ -6,7 +6,7 @@ location: "Bengaluru, India"
 venue: "HSR"
 event: "NexusCon 2026"
 eventLink: ""
-slides: "https://kunalworldwide.github.io/Sessions/2026/kimchi-nexuscon/"
+slides: "http://kunaldas.net/Sessions/2026/kimchi-nexuscon/"
 categories: [AI, Coding Agents, Open Source, Multi-model Routing, FinOps, Kimchi]
 ---
 
@@ -23,4 +23,4 @@ Key topics covered:
 - Spend governance: org, team, API key, and user-level hard caps with auto-termination
 - Data sovereignty and self-hosted deployment options
 
-Get the [slides here](https://kunalworldwide.github.io/Sessions/2026/kimchi-nexuscon/).
+Get the [slides here](http://kunaldas.net/Sessions/2026/kimchi-nexuscon/).
